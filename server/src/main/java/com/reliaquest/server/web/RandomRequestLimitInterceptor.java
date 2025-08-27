@@ -10,6 +10,9 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+/**
+ * I havent been quite sure how to turn this off for testing
+ */
 public class RandomRequestLimitInterceptor implements HandlerInterceptor {
 
     private static final int REQUEST_LIMIT = RandomGenerator.getDefault().nextInt(5, 10);

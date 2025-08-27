@@ -1,7 +1,6 @@
 package com.reliaquest.server.config;
 
 import com.reliaquest.server.model.MockEmployee;
-import com.reliaquest.server.web.RandomRequestLimitInterceptor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -54,6 +53,8 @@ public class ServerConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new RandomRequestLimitInterceptor());
+        // Removing for testing purposes, tried using config to determine whether to add
+        // but I was getting a cyclic dependency fail
+        // registry.addInterceptor(new RandomRequestLimitInterceptor());
     }
 }
