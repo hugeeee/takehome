@@ -15,6 +15,10 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.test.context.ActiveProfiles;
 
+/**
+ * Integration tests for Employee Resource.
+ * Uses running application with no mocking.
+ */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test") // I was trying to use this for the rate limiter but that is an external service
 public class EmployeeControllerImplIntegrationTest {
@@ -64,7 +68,6 @@ public class EmployeeControllerImplIntegrationTest {
         assertThat(getResponse.getBody().getName()).isEqualTo("John Doe");
     }
 
-    // TODO: Neg test bad create
     @Test
     void testCreateEmployee_BadCommand_ThrowException() {
         final EmployeeCommand newEmployee = new EmployeeCommand();

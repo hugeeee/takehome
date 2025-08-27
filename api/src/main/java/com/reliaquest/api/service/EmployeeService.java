@@ -243,7 +243,7 @@ public class EmployeeService {
     }
 
     /**
-     * I would have preferred to do these validations as annotations
+     * NOTE TO DEV: I would have preferred to do these validations as annotations
      * Validates the payload
      * @param employeeCommand the employee payload
      */
@@ -255,12 +255,14 @@ public class EmployeeService {
         if (employeeCommand.getSalary() == null || employeeCommand.getSalary() < 0) {
             throw new IllegalArgumentException("Employee salary must be a positive number");
         }
-        // TODO: Double check this
+
         if (employeeCommand.getAge() == null || employeeCommand.getAge() < 16 || employeeCommand.getAge() > 75) {
             throw new IllegalArgumentException("Employee age must be between 16 and 100");
         }
-        // TODO: Add a check for the title
 
+        if (employeeCommand.getTitle() == null || employeeCommand.getTitle().trim().isEmpty()) {
+            throw new IllegalArgumentException("Employee title is required");
+        }
     }
 
     /**
