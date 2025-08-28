@@ -260,7 +260,8 @@ public class EmployeeService {
             throw new IllegalArgumentException("Employee age must be between 16 and 100");
         }
 
-        if (employeeCommand.getTitle() == null || employeeCommand.getTitle().trim().isEmpty()) {
+        if (employeeCommand.getTitle() == null
+                || employeeCommand.getTitle().trim().isEmpty()) {
             throw new IllegalArgumentException("Employee title is required");
         }
     }
